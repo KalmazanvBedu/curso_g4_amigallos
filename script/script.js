@@ -8,14 +8,14 @@ var produc_name = "Pantalón Cholo";
 
 // console.log(boton_id);
 
-boton_id.addEventListener("click", () => {
-    var tarjeta = document.querySelector(".tarjeta-producto-uno");
+// boton_id.addEventListener("click", () => {
+//     var tarjeta = document.querySelector(".tarjeta-producto-uno");
 
-    var textoElemento = tarjeta.querySelector(".titulo-producto").innerText;
-    var codigoElemento = tarjeta.querySelector(".codigo-producto").innerText;
+//     var textoElemento = tarjeta.querySelector(".titulo-producto").innerText;
+//     var codigoElemento = tarjeta.querySelector(".codigo-producto").innerText;
 
-    alert("El nombre del producto es " + textoElemento + " y el código de producto es: " + codigoElemento);
-});
+//     alert("El nombre del producto es " + textoElemento + " y el código de producto es: " + codigoElemento);
+// });
 
 
     // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
@@ -49,6 +49,20 @@ boton_id.addEventListener("click", () => {
     //   }
     // });
 
+    const botones = document.querySelectorAll("div[class='contenedor-botones'] button");
+
+    var longitudArregglo = botones.length;
+
+    for(let i = 0; i < longitudArregglo; i++) {
+        let boton = botones[i];
+        let idBoton = boton.getAttribute("id");
+        
+        boton.addEventListener("click", (e) => {
+            if(idBoton === e.target.id) {
+                alert(e.target.id)
+            }
+        });
+    }
 
 
 
