@@ -1,55 +1,17 @@
-var boton = document.getElementsByClassName("button");
+const menu_option_1 = document.getElementById("menu-option-1");
 
-var boton_id = document.getElementById("button-3")
+menu_option_1.addEventListener("click", () => {
 
-var produc_name = "Pantalón Cholo";
+    dataLayer.push({
+        event: 'menu_option_click',
+        option_menu: "1"
+    })
 
-// console.log(boton);
-
-// console.log(boton_id);
-
-// boton_id.addEventListener("click", () => {
-//     var tarjeta = document.querySelector(".tarjeta-producto-uno");
-
-//     var textoElemento = tarjeta.querySelector(".titulo-producto").innerText;
-//     var codigoElemento = tarjeta.querySelector(".codigo-producto").innerText;
-
-//     alert("El nombre del producto es " + textoElemento + " y el código de producto es: " + codigoElemento);
-// });
-
-
-    // dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
-    // dataLayer.push({
-    //   event: "add_to_cart",
-    //   ecommerce: {
-    //     currency: "USD",
-    //     value: 30.03,
-    //     items: [
-    //     {
-    //       item_id: "12345",
-    //       item_name: produc_name,
-    //       affiliation: "Galloshop",
-    //       coupon: "Galliza",
-    //       discount: 2.5,
-    //       index: 0,
-    //       item_brand: "Levis",
-    //       item_category: "Pantalón",
-    //       item_category2: "Adult",
-    //       item_category3: "Mezclilla",
-    //       item_category4: "Crew",
-    //       item_category5: "Short sleeve",
-    //       item_list_id: "related_products",
-    //       item_list_name: "Related Products",
-    //       item_variant: "green",
-    //       location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
-    //       price: 500,
-    //       quantity: 1
-    //     }
-    //     ]
-    //   }
-    // });
-
-    const botones = document.querySelectorAll("div[class='contenedor-botones'] button");
+});
+ 
+ 
+ 
+ const botones = document.querySelectorAll("div[class='contenedor-botones'] button");
 
     var longitudArregglo = botones.length;
 
@@ -59,10 +21,54 @@ var produc_name = "Pantalón Cholo";
         
         boton.addEventListener("click", (e) => {
             if(idBoton === e.target.id) {
-                alert(e.target.id)
+
+                const productName = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class*='contenedor-caracteristicas']").querySelector("h2[class*='titulo-producto']").innerText;
+                const productCode = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class*='contenedor-caracteristicas']").querySelector("span[class*='codigo-producto']").innerText;
+                const productPrice = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class*='contenedor-caracteristicas']").querySelector("span[class*='precio-producto']").innerText;        
+
+                if(boton.innerText === "Add") {
+
+                dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+
+                dataLayer.push({
+                    event: "add_to_cart",
+                    ecommerce: {
+                    currency: "USD",
+                        items: [
+                            {
+                            item_id: productName,
+                            item_name: productCode,
+                            price: productPrice,
+                            }
+                                ]
+                            }
+                        });
+
+                }
+
+                if(boton.innerText === "Remove") {
+
+                    dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+    
+                    dataLayer.push({
+                        event: "remove_from_cart",
+                        ecommerce: {
+                        currency: "USD",
+                            items: [
+                                {
+                                item_id: productName,
+                                item_name: productCode,
+                                price: productPrice,
+                                }
+                                    ]
+                                }
+                            });
+    
+                    }
+
+
             }
-        });
+        })
+
     }
-
-
 
