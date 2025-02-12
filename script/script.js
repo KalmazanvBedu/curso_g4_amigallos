@@ -66,6 +66,26 @@ menu_option_1.addEventListener("click", () => {
     
                     }
 
+                    if(boton.innerText === "Payment") {
+
+                        dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+        
+                        dataLayer.push({
+                            event: "purchase",
+                            ecommerce: {
+                            currency: "USD",
+                                items: [
+                                    {
+                                    item_id: productName,
+                                    item_name: productCode,
+                                    price: productPrice,
+                                    }
+                                        ]
+                                    }
+                                });
+        
+                        }
+
 
             }
         })
