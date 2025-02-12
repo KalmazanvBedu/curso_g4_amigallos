@@ -25,6 +25,7 @@ menu_option_1.addEventListener("click", () => {
                 const productName = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class*='contenedor-caracteristicas']").querySelector("h2[class*='titulo-producto']").innerText;
                 const productCode = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class*='contenedor-caracteristicas']").querySelector("span[class*='codigo-producto']").innerText;
                 const productPrice = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class*='contenedor-caracteristicas']").querySelector("span[class*='precio-producto']").innerText;        
+                const productPriceNumber = parseInt(productPrice);
 
                 if(boton.innerText === "Add") {
 
@@ -36,9 +37,9 @@ menu_option_1.addEventListener("click", () => {
                     currency: "USD",
                         items: [
                             {
-                            item_id: productName,
-                            item_name: productCode,
-                            price: productPrice,
+                            item_id: productCode,
+                            item_name: productName,
+                            price: productPriceNumber,
                             }
                                 ]
                             }
@@ -56,9 +57,9 @@ menu_option_1.addEventListener("click", () => {
                         currency: "USD",
                             items: [
                                 {
-                                item_id: productName,
-                                item_name: productCode,
-                                price: productPrice,
+                                item_id: productCode,
+                                item_name: productName,
+                                price: productPriceNumber,
                                 }
                                     ]
                                 }
@@ -76,9 +77,9 @@ menu_option_1.addEventListener("click", () => {
                             currency: "USD",
                                 items: [
                                     {
-                                    item_id: productName,
-                                    item_name: productCode,
-                                    price: productPrice,
+                                    item_id: productCode,
+                                    item_name: productName,
+                                    price: productPriceNumber,
                                     }
                                         ]
                                     }
