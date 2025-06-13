@@ -58,17 +58,28 @@
                 <div id="tarjeta-producto-uno" class="tarjeta-producto tarjeta-producto-uno">
                     <div class="contenedor-caracteristicas">
                         <h2 class="titulo-producto encabezado-dos">Skinny Pants</h1>
-                        <span class="codigo-producto texto">Product code: 12345</span>
-                        <span class="etiqueta-precio texto">Price:</span>
-                        <span class="precio-producto texto">30</span>
+                        <div class="contenedorCodigoProducto">
+                            <span class="etiqueta-codigo-producto texto etiqueta">Product code:</span>
+                            <span class="codigo-producto texto">12345</span>
+                        </div>
+                        <div class="contenedorPrecio">
+                            <span class="etiqueta-precio texto etiqueta">Price (USD):</span>
+                            <span class="precio-producto texto">30</span>
+                        </div>
+                        <div class="contenedorCantidad">
+                            <span class="etiqueta-cantidad texto etiqueta">Quantity:</span>
+                            <span class="cantidad-producto texto">1</span>
+                        </div>
                     </div>
                     <div class="contenedor-imagen-producto">
                         <img class="imagen-producto" src="images/Ropa/Pantalones/pantalon_modelo_1.png" alt="">
                     </div>
                     <div class="contenedor-botones">
+                        <button id="more-1" class="button">-</button>
+                        <button id="less-2" class="button">+</button>
                         <button id="button-1" class="button">Add</button>
-                        <button id="button-1" class="button">Remove</button>
-                        <button id="button-2" class="button">Payment</button>
+                        <button id="button-2" class="button">Remove</button>
+                        <button id="button-3" class="button">Payment</button>
                     </div>
                 </div>
                 <div class="tarjeta-producto tarjeta-producto-dos">

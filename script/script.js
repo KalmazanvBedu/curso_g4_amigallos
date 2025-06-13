@@ -1,3 +1,5 @@
+var contador = 1;
+
 const menu_option_1 = document.getElementById("menu-option-1");
 
 menu_option_1.addEventListener("click", () => {
@@ -8,8 +10,6 @@ menu_option_1.addEventListener("click", () => {
     })
 
 });
- 
- 
  
  const botones = document.querySelectorAll("div[class='contenedor-botones'] button");
 
@@ -85,7 +85,33 @@ menu_option_1.addEventListener("click", () => {
                                     }
                                 });
         
+                    }
+
+                    if(boton.innerText === "+") {
+
+                        contador = contador + 1;
+
+                        var etiquetaCantidad = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class='contenedorCantidad']").querySelector("span[class*='cantidad-producto']");
+
+                        etiquetaCantidad.innerText = contador;
+
+                    }
+
+                    if(boton.innerText === "-") {
+
+                        contador = contador - 1;
+
+                        var etiquetaCantidad = boton.closest("div[class*='tarjeta-producto']").querySelector("div[class='contenedorCantidad']").querySelector("span[class*='cantidad-producto']");
+
+                        if(contador < 1) {
+
+                            contador = 1;
+
                         }
+
+                        etiquetaCantidad.innerText = contador;
+                        
+                    }
 
 
             }
